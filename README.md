@@ -1,63 +1,47 @@
-# Unit 18 PWA Homework: Online/Offline Budget Trackers
+# Budget Tracker
+## Description
 
-Add functionality to our existing Budget Tracker application to allow for offline access and functionality.
+A progressive web application (PWA) that allows users to track expenses and deposits online/offline. Transactions entered offline will be calculated and populated when a connection is established.
 
-The user will be able to add expenses and deposits to their budget with or without a connection. When entering transactions offline, they should populate the total when brought back online.
-
-Offline Functionality:
-
-  * Enter deposits offline
-
-  * Enter expenses offline
-
-When brought back online:
-
-  * Offline entries should be added to tracker.
-
-## User Story
-AS AN avid traveller
-I WANT to be able to track my withdrawals and deposits with or without a data/internet connection
-SO THAT my account balance is accurate when I am traveling
-
-## Business Context
-
-Giving users a fast and easy way to track their money is important, but allowing them to access that information anytime is even more important. Having offline functionality is paramount to our applications success.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
-## Acceptance Criteria
-GIVEN a user is on Budget App without an internet connection
-WHEN the user inputs a withdrawal or deposit
-THEN that will be shown on the page, and added to their transaction history when their connection is back online.
+## Installation
 
-- - -
+```
+npm install
+```
 
-## Commit Early and Often
+## Usage
 
-* One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
+### Two Ways to access the application:
+1. Click [here](https://safe-sands-03074.herokuapp.com/) to launch the application
+2. Run "node server.js" or "npm start" in the terminal, then the port of the localhost server will appear. Be sure to navigate to the project folder before doing so
 
-1. Your commit history is a signal to employers that you are actively working on projects and learning new skills
+### How To Use
+1. Enter the name and amount of the transaction
+2. Click "Add Funds" or "Subtract Funds" buttons to input and record transactions
 
-2. Your commit history allows you to revert your code base in the event that you need to return to a previous state
+### Screenshots
+![app screenshot](./images/screenshot.PNG)
+![exercise page](./images/app_demo.gif)
+#### Budget Tracker is DOWNLOADABLE!
+![installation](./images/install.PNG)
 
-* Follow these guidelines for committing:
+## License
 
-  * Make single purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits
+License for this project: MIT
 
-  * Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history
+## Contributing
 
-  * Don't commit half done work, for the sake of your collaborators (and your future self!)
+1. Fork/Clone this repo
+2. Hack away!
+3. Create a new pull request
+4. Good commits will be accepted
 
-  * Test your application before you commit to ensure functionality at every step in the development process
 
-* We would like you to have well over 200 commits by graduation, so commit early and often!
+## Questions
 
-* Deploy your application with [Heroku and MongoDB Atlas.](../04-Supplemental/MongoAtlas-Deploy.md)
-
-## Submission on BCS
-
-* You are required to submit the following:
-
-  * the URL to the deployed application
-
-  * the URL to the Github repository
-
+If you have any questions/doubts, feel free to contact me via:
+* GitHub: [https://github.com/ZanHong](https://github.com/ZanHong)
+* Email: [mokzanhong92@hotmail.com](mailto:mokzanhong92@hotmail.com)
