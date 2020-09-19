@@ -73,12 +73,11 @@ self.addEventListener("fetch", event => {
     return;
   }
 
-  // request is not in cache. make network request and cache the response
-  return caches.open(DATA_CACHE_NAME).then(cache => {
-    return fetch(event.request).then(response => {
-      return cache.put(event.request, response.clone()).then(() => {
-        return response;
-      });
-    });
-  });
+  evt.respondWith(
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.match(evt.request).then(response => {
+        return response || fetch(evt.request);
+      })
+    })
+  )
 })
