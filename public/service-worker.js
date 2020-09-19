@@ -24,27 +24,22 @@ self.addEventListener("install", event => {
   );
 });
 
-// The activate handler takes care of cleaning up old caches.
-self.addEventListener("activate", event => {
-  const currentCaches = [STATIC_CACHE, DATA_CACHE_NAME];
+// activates service worker and remove old data fom the cache
+self.addEventListener("activate", function (event) {
   event.waitUntil(
-    caches
-      .keys()
-      .then(cacheNames => {
-        // return array of cache names that are old to delete
-        return cacheNames.filter(
-          cacheName => !currentCaches.includes(cacheName)
-        );
-      })
-      .then(cachesToDelete => {
-        return Promise.all(
-          cachesToDelete.map(cacheToDelete => {
-            return caches.delete(cacheToDelete);
-          })
-        );
-      })
-      .then(() => self.clients.claim())
+    caches.keys().then(keyList => {
+      return Promise.all(
+        keyList.map(key => {
+          if (key !== STATIC_CACHE && key !== DATA_CACHE_NAME) {
+            console.log("Removing old cache data", key);
+            return caches.delete(key);
+          }
+        })
+      );
+    })
   );
+
+  self.clients.claim();
 });
 
 self.addEventListener("fetch", event => {
@@ -73,10 +68,10 @@ self.addEventListener("fetch", event => {
     return;
   }
 
-  evt.respondWith(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.match(evt.request).then(response => {
-        return response || fetch(evt.request);
+  event.respondWith(
+    caches.open(STATIC_CACHE).then(cache => {
+      return cache.match(event.request).then(response => {
+        return response || fetch(event.request);
       })
     })
   )
